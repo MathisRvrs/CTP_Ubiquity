@@ -3,6 +3,7 @@ namespace controllers;
 
 use Ubiquity\controllers\Controller;
 use Ubiquity\utils\http\URequest;
+use Ubiquity\utils\http\USession;
 
 /**
  * controllers$ControllerBase
@@ -15,7 +16,9 @@ abstract class ControllerBase extends Controller {
 
 	public function initialize() {
 		if (! URequest::isAjax()) {
-			$this->loadView($this->headerView);
+            $quant = USession::get("quant");
+            $price =  USession::get("price");
+            $this->loadView($this->headerView,["quant" => $quant,"price" => $price]);
 		}
 	}
 

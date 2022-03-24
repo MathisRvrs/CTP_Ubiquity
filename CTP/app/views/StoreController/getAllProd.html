@@ -1,0 +1,33 @@
+<head>
+    <h1>Tous les produits</h1>
+    {{products|length}} références
+    <br></br>
+</head>
+
+<div>
+    <div class="ui five doubling cards">
+        {% for product in products %}
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    {{product.name}}
+                </div>
+            </div>
+            <div class="image">
+                {{img('store/'~product.image~'.jpg',{class: ' '})}}
+            </div>
+            <div class="extra content">
+                {{product.getPrice}}€
+
+            </div>
+            <a href="{{path ('store.addToCart',[product.price] )}}" class="ui bottom attached orange button" type="submit">
+                <i class="add icon"></i>
+                Add to Cart
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>

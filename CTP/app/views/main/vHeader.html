@@ -23,12 +23,17 @@
 						<div class="ui labeled button" tabindex="0">
 							<div class="ui basic yellow button">
 								<i class="cart icon"></i>
-								{{nombre}}
+								{{quant}}
 							</div>
 							<a class="ui basic left pointing blue label">
-								1,048 €
+								{{price}} €
 							</a>
 						</div>
+						<button class="ui active blue button">
+							<i class="sign in icon" aria-hidden="true"></i>
+							Se connecter
+						</button>
+						{{ _userInfo | raw }}
 					</div>
 
 				</div>
