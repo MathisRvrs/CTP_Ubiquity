@@ -23,9 +23,12 @@ class StoreController extends ControllerBase {
 
     public function initialize()
     {
+        $this->view->setVar('nombre', 0);
         parent::initialize();
         $this->repo??=new ViewRepository($this, Section::class);
+
     }
+
 
     #[Route('default_', name: 'Home')]
     public function index(){
@@ -41,5 +44,12 @@ class StoreController extends ControllerBase {
 
         $this->loadView("StoreController/getSection.html");
     }
+
+
+	#[Route(path: "store/addToCart/{productId}/{count}",name: "store.addToCart")]
+	public function addToCart($productId,$count){
+
+        $id = USession::get($productId);
+	}
 
 }

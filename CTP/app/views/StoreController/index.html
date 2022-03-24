@@ -1,17 +1,30 @@
-<head>
+<div class="ui container">
     <div>
-        <button class="ui green button" type="submit">Parcourir le store ({{countProd}}...)</button>
+        <a class="ui fluid green button" type="submit">Parcourir le store ({{countProd}}...)</a>
     </div>
-</head>
-<body>
-<ul>
+
+    <div class="ui horizontal divider">
+        Ou
+    </div>
+
+    <div class="ui cards">
     {% for section in all %}
-    <div class="ui segment">
-    <h1>{{section.name}}</h1>
-        {{section.description}}
-        <br></br>
-        <a href=" {{path ('store.section',[section.id])}}" class="ui green button" type="submit"> Consulter produit ({{section.products|length}})... </a>
-    </div>
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    {{section.name}}
+                </div>
+                <div class="description">
+                    {{section.description}}
+                </div>
+            </div>
+        <a href=" {{path ('store.section',[section.id])}}" class="ui bottom attached button" type="submit">
+                    <i class="add icon"></i>
+            Consulter produit ({{section.products|length}})...
+        </a>
+
+        </div>
+
     {% endfor %}
-</ul>
-</body>
+    </div>
+</div>

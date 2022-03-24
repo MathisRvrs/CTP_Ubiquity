@@ -1,0 +1,27 @@
+<div>
+    <div class="ui cards">
+        {% for product in byId.products %}
+        <div class="card">
+            <div class="content">
+                <div class="header">
+                    {{product.name}}
+                </div>
+            </div>
+                <div class="image">
+                    {{img('store/'~product.image~'.jpg',{class: ' '})}}
+                </div>
+                <div class="extra content">
+                {{product.getPrice}}€
+
+            </div>
+                <a href="{{path('store.addToCart', [product.id, 1])}}" class="ui bottom attached button" type="submit">
+                    <i class="add icon"></i>
+                    Add to Cart
+                </a>
+
+        </div>
+
+    {% endfor %}
+
+    </div>
+</div>
