@@ -121,7 +121,7 @@ class User{
 
 
 	 public function __toString(){
-		return ($this->name??'no value').' '.$this->email;
+		return ($this->name??'no value').' ('.$this->email.')';
 	}
 
 }

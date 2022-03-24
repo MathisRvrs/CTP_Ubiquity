@@ -1,0 +1,17 @@
+<head>
+    <div>
+        <button class="ui green button" type="submit">Parcourir le store ({{countProd}}...)</button>
+    </div>
+</head>
+<body>
+<ul>
+    {% for section in all %}
+    <div class="ui segment">
+    <h1>{{section.name}}</h1>
+        {{section.description}}
+        <br></br>
+        <button class="ui green button" type="submit"> Consulter produit ({{section.products|length}})... </button>
+    </div>
+    {% endfor %}
+</ul>
+</body>
