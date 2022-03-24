@@ -10,7 +10,7 @@
     <h1>{{section.name}}</h1>
         {{section.description}}
         <br></br>
-        <button class="ui green button" type="submit"> Consulter produit ({{section.products|length}})... </button>
+        <a href=" {{path ('store.section',[section.id])}}" class="ui green button" type="submit"> Consulter produit ({{section.products|length}})... </a>
     </div>
     {% endfor %}
 </ul>

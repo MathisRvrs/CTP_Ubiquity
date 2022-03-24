@@ -31,10 +31,15 @@ class StoreController extends ControllerBase {
     public function index(){
         $count=DAO::count(Product::class).' produits';
         $countSection=DAO::uCount(Section::class);
-        $prods=DAO::getAll(Product::class);
         $this->repo->all("", ['products']);
-        //$this->repo->byId(USession::g)
         $this->loadView("StoreController/index.html", ['countProd' => $count, 'countSec' => $countSection]);
+    }
+
+    #[Get(path: "StoreController/store/section/{id}", name: "store.section")]
+    public function getSection($id){
+        $this->repo->byId($id,['products']);
+
+        $this->loadView("StoreController/getSection.html");
     }
 
 }
