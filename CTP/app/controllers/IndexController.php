@@ -29,7 +29,7 @@ class IndexController extends ControllerBase {
 			$config = ThemesManager::saveActiveTheme($theme);
 			\header('Location: ' . $config['siteUrl']);
 		} else {
-			Logger::warn('Themes', \sprintf('The theme %s does not exists!', $theme), 'changeTheme(ct)');
+			Logger::warn('Themes', \sprintf('The theme %s does no exists!', $theme), 'changeTheme(ct)');
 			$this->forward(IndexController::class);
 		}
 	}
